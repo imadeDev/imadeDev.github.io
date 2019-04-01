@@ -1,0 +1,16 @@
+language: ruby
+rvm:
+- 2.6.0
+
+node:
+- 6.10.3
+
+install:
+- bundle install 
+- npm install -g firebase-tools
+
+script: 
+- bundle exec jekyll build 
+- firebase deploy --token=$FIREBASE_TOKEN --non-interactive
+
+sudo: false
